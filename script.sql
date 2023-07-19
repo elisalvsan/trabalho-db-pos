@@ -61,7 +61,7 @@ create table if not exists `Loja`.`ContaReceber`(
 	`ID` int not null auto_increment,
     `FaturaVendaID` int null,
     `DataConta` date not null,
-    `DataRecebimento` date not null,
+    `DataVecebimento` date not null,
     `Valor` decimal(18,2) not null,
     `Situação` ENUM('1','2','3') not null,
     `Cliente_ID` int not null,
