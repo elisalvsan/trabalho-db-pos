@@ -23,7 +23,7 @@ create table if not exists `Loja`.`Municipio`(
     `CodIBGE` int not null,
     `Estado_ID` int not null,
     primary key(`ID`),
-    index `fk_Municipio_Estado1_idx` (`Estado_ID` ASC) visible,
+    index `fk_Municipio_Estado1_idx` (`Estado_ID` ASC),
     constraint `fk_Municipio_Estado1`
 		foreign key(`Estado_ID`)
         references `Loja`.`Estado`(`ID`)
@@ -46,7 +46,7 @@ create table if not exists `Loja`.`Cliente`(
     `EndCEP` char(8) null,
     `Municipio_ID` int not null,
     primary key(`ID`),
-    index `fk_Cliente_Municipio1_idx` (`Municipio_ID` ASC) visible,
+    index `fk_Cliente_Municipio1_idx` (`Municipio_ID` ASC),
     constraint `fk_Cliente_Municipio1`
 		foreign key(`Municipio_ID`)
         references `Loja`.`Municipio`(`ID`)
@@ -61,12 +61,12 @@ create table if not exists `Loja`.`ContaReceber`(
 	`ID` int not null auto_increment,
     `FaturaVendaID` int null,
     `DataConta` date not null,
-    `DataVecebimento` date not null,
+    `DataVencimento` date not null,
     `Valor` decimal(18,2) not null,
-    `Situação` ENUM('1','2','3') not null,
+    `Situacao` ENUM('1','2','3') not null,
     `Cliente_ID` int not null,
     primary key(`ID`),
-    index `fk_ContaReceber_Cliente1_idx` (`Cliente_ID` ASC)visible,
+    index `fk_ContaReceber_Cliente1_idx` (`Cliente_ID` ASC),
     constraint `fk_ContaReceber_Cliente1`
 		foreign key(`Cliente_ID`)
         references `Loja`.`Cliente`(`ID`)
